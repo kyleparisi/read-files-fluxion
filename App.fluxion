@@ -1,0 +1,148 @@
+[
+  {
+    "app": {
+      "style": {
+        "width": "100%",
+        "height": "100%",
+        "transition": "transform 0.2s"
+      },
+      "svgStyle": {
+        "width": "100%",
+        "height": "100vh",
+        "overflow": "visible",
+        "transition": "transform 0.2s"
+      },
+      "linkStyle": {
+        "strokeWidth": 1,
+        "strokeLinejoin": "round",
+        "strokeLinecap": "round",
+        "fill": "none"
+      },
+      "linkOverlapStyle": {
+        "strokeWidth": 50,
+        "strokeLinejoin": "round",
+        "strokeLinecap": "round",
+        "fill": "none",
+        "stroke": "rgba(230, 230, 230, 0)"
+      }
+    },
+    "editor": {
+      "height": 400
+    },
+    "pan": {
+      "x": 3,
+      "y": 1
+    },
+    "scale": 1,
+    "throttle": 2,
+    "links": {
+      "1": {
+        "direction": "->",
+        "source": {
+          "node": 3,
+          "port": "data"
+        },
+        "target": {
+          "node": 1,
+          "port": "data"
+        },
+        "id": 1,
+        "layer_id": 0
+      },
+      "2": {
+        "direction": "->",
+        "source": {
+          "node": 2,
+          "port": "data"
+        },
+        "target": {
+          "node": 1,
+          "port": "data"
+        },
+        "id": 2,
+        "layer_id": 0
+      }
+    },
+    "nodes": {
+      "1": {
+        "module": "js",
+        "name": "log",
+        "require": "",
+        "run": "const data = await inputs.data.take();\nconsole.log(data);\n",
+        "inputs": {
+          "data": true
+        },
+        "outputs": {},
+        "position": {
+          "left": 774,
+          "right": 892,
+          "top": 138
+        },
+        "id": 1,
+        "layer_id": 0
+      },
+      "2": {
+        "module": "js",
+        "name": "sample 1",
+        "require": "const fs = require(\"fs\");",
+        "run": "// this is using native nodejs\n// use this if you just need to read files on the server/host\nconsole.log(__dirname);\nfs.readFile(__dirname + \"/sample1.csv\", \"utf8\", function (err, data) {\n  if (err) {\n    console.log(err);\n    return;\n  }\n  outputs.data.put(data);\n})",
+        "inputs": {},
+        "outputs": {
+          "data": true
+        },
+        "position": {
+          "left": 450,
+          "right": 568,
+          "top": 130
+        },
+        "id": 2,
+        "layer_id": 0
+      },
+      "3": {
+        "module": "file-input",
+        "name": "File Input",
+        "outputs": {
+          "data": true
+        },
+        "position": {
+          "left": 325,
+          "right": 607,
+          "top": 228
+        },
+        "id": 3,
+        "layer_id": 0
+      }
+    },
+    "packets": {},
+    "configuring": {
+      "module": "js",
+      "name": "sample 1",
+      "require": "const fs = require(\"fs\");",
+      "run": "// this is using native nodejs\n// use this if you just need to read files on the server/host\nconsole.log(__dirname);\nfs.readFile(__dirname + \"/sample1.csv\", \"utf8\", function (err, data) {\n  if (err) {\n    console.log(err);\n    return;\n  }\n  outputs.data.put(data);\n})",
+      "inputs": {},
+      "outputs": {
+        "data": true
+      },
+      "position": {
+        "left": 450,
+        "right": 568,
+        "top": 130
+      },
+      "id": 2,
+      "layer_id": 0
+    },
+    "addingLink": {},
+    "mouseOverPort": "",
+    "webview": {
+      "style": {
+        "width": "320px",
+        "height": "480px",
+        "left": "10px",
+        "top": "10px"
+      },
+      "src": ""
+    },
+    "problem": {},
+    "selectedLinks": {}
+  }
+]
